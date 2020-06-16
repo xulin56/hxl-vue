@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>reduce</title>
+</head>
+<script>
+    var arr = [3,9,4,3,6,0,9];
+    document.write(arr);
+    //求数组项之和  初始值是0
+    var sum0 = arr.reduce(function(pre,cur,index,self){
+        return pre + cur;//0+3+9+4+3+6+0+9=34
+    },0);
+    //求数组项之和  初始值是2
+    var sum1 = arr.reduce(function(pre,cur,index,self){
+        return pre + cur;//2+3+9+4+3+6+0+9=36
+    },2);
+    //求数组项最大值
+    var max = arr.reduce(function(pre,cur){
+        // console.log(pre,cur);
+        return Math.max(pre,cur);
+    });
+    //求数组项最小值
+    var min = arr.reduce(function(pre,cur){
+        // console.log(pre,cur);
+        return Math.min(pre,cur);
+    });
+    //数组去重
+    var deWeight = arr.reduce(function (prev, cur) {
+        // console.log(prev);
+        prev.indexOf(cur) === -1 && prev.push(cur);
+        return prev;
+    },[]);
+    // console.log(sum0)
+    // console.log(sum2)
+    // console.log(max)
+    console.log(min)
+    // console.log(deWeight)
+</script>
+<body>
+<h2>语法：arr.reduce(callback,[initialValue])</h2>
+callback:函数中包含四个参数<br/>
+- previousValue （上一次调用回调返回的值，或者是提供的初始值（initialValue））<br/>
+- currentValue （数组中当前被处理的元素）<br/>
+- index （当前元素在数组中的索引)<br/>
+- array （调用的数组）<br/>
+
+initialValue （作为第一次调用 callback 的第一个参数——也就是返回的初始值）
+</body>
+</html>

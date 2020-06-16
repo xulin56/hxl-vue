@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>forEach与map</title>
+</head>
+<script>
+    var arr1 = [1,-2,3,4,-5];
+    var arr2 = [1,-2,3,4,-5];
+    //数组中的每一项翻倍
+    arr1.forEach(function(item,index,self){
+        console.log(self[index] === item);//true
+        // self[index] = item*2;//[2, -4, 6, 8, -10]
+        item*2
+    });
+    arr2.map(function(item,index,self){
+        return item*2
+    });
+    console.log(arr1);
+    console.log(arr2);
+</script>
+<body>
+<h1>forEach()方法用于调用数组的每一个元素，并将元素传递给回调函数。</h1>
+
+<h2>
+    语法<br/>
+    array.forEach(function(currentValue, index, arr), thisValue)
+</h2>
+
+
+currentValue：必填，当前元素。<br/>
+index：可选，当前元素的索引。<br/>
+arr：可选，当前元素所属的数组对象。<br/>
+thisValue：可选，传递给函数的值一般用this值，如果这个参数为空，"undefined"会传递给"this"值。（这个参数一般很少填）<br/>
+
+forEach没有返回值，map需要返回一个新数组
+
+</body>
+</html>
